@@ -7,6 +7,7 @@ piDegeri =  math.pi
 print("Daire Alan ve Çevre Hesaplama")
 print("***********************")
 
+# daire yarıçapını kullanıcıdan al
 daireYaricap = float(input("Dairenin yarıçapını giriniz(r):")) # r
 
 # daire alanı hesapla
