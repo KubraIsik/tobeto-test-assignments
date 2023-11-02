@@ -1,4 +1,4 @@
-# Pair 1, group task.
+# Pair 1, group assignment.
 
 SQL Queries for __PostgreSQL__ to retrive data and information from Northwind Database. 
 
