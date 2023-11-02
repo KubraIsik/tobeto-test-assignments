@@ -1,4 +1,5 @@
 ----- PAIR-1 SQL QUERY  ----
+-- queries to retrieve data and information from northwind database --
 
 SELECT * FROM products
 ORDER BY unit_price DESC
