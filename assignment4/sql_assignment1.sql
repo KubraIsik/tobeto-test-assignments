@@ -137,4 +137,6 @@ SELECT p.product_name, p.unit_price, c.category_name FROM products as p
 SELECT p.product_name, c.category_name, s.company_name FROM products as p
  inner join categories as c on c.category_id = p.category_id
  inner join suppliers as s on p.supplier_id = s.supplier_id
-ORDER BY p.units_on_order DESC LIMIT 1
+where p.product_id = (Select product_id from order_details
+	group by product_id
+	order by SUM(quantity) desc LIMIT 1) 
