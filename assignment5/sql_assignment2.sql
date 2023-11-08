@@ -1,4 +1,4 @@
--- PAIR 1 , SQL ODEV 2
+-- PAIR 1 , SQL ASSIGNMENT 2
 
 -- 1. Stokta bulunmayan ürünlerin ürün listesiyle birlikte tedarikçilerin ismi ve iletişim numarasını 
 -- (`ProductID`, `ProductName`, `CompanyName`, `Phone`) almak için bir sorgu yazın.
