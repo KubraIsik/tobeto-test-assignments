@@ -61,12 +61,15 @@ class Test_Sauce_Login:
         testResult = errorMessage.text ==   "Epic sadface: Sorry, this user has been locked out."
         print(f"Kilitli kullanıcı Login Test Sonucu: {testResult}")
     
-    # check expected result of the standard user login and print test result
+    # check expected results of the standard user login and print test result
     def standard_user_login(self):
         Test_Sauce_class = Test_Sauce_Login(self.user_name_input,self.password_input)
         driver = Test_Sauce_class.login_test()
 
         sleep(5)
+
+        current_page_test_result= driver.current_url == "https://www.saucedemo.com/inventory.html"
+        print(f"Yönlendirilen sayfa Test Sonucu: {current_page_test_result}")
 
         listOfCourses = driver.find_elements(By.CLASS_NAME, "inventory_item")
         testResult = len(listOfCourses) == 6 # control
