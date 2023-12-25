@@ -1,6 +1,13 @@
+
+In this particular python test automation scrpits, Selenium automated test cases executed for https://www.saucedemo.com/ website with using pytest framework in VSCode IDE.
+
+For user login scenario 5 different test cases and for product list page 3 different test cases created as pytest functions.
+Test case functions are decorated with some pytest decorators. 
+
 # PYTEST DECORATORS
 
-A decorator function takes another function as its argument and returns a new function that usually enhances or modifies the behaviour of the original function. This can add functionality to functions without modifying their source code directly, making it a powerful tool for code reuse and abstraction.
+A pytest decorator is a predefined marker that is created to customise and improve the behaviour of marked test functions. 
+Decorators can be used for a variety of reasons, but basically they are used to improve code quality by creating reusable, concise, readable test functions.
 
 A decorator is a design pattern that allows you to modify the functionality of a function by wrapping it in another function.
 
