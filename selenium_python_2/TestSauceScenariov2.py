@@ -55,7 +55,7 @@ class Test_Sauce_Login:
         loginButton = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"login-button")))
         loginButton.click() """
 
-        self.login_test()
+        self.login_test(self.user_name_input,self.password_input)
         
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Username is required"
