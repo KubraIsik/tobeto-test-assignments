@@ -6,7 +6,7 @@ Test case functions are decorated with some pytest decorators.
 
 # PYTEST DECORATORS
 
-![alt text](https://github.com/[KubraIsik]/[tobeto-test-assignments]/blob/[selenium_python_2]/selenium_python_2/pytestimage.png?raw=true)
+![alt text](https://github.com/KubraIsik/tobeto-test-assignments/blob/selenium_python_2/pytestimage.png?raw=true)
 
 A pytest decorator is a design pattern that is created to customise and improve the behaviour of test functions. 
 Decorators can be used for a variety of reasons, but basically they are used to improve code quality by creating reusable, concise, readable test functions.
