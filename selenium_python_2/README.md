@@ -6,10 +6,17 @@ Test case functions are decorated with some pytest decorators.
 
 # PYTEST DECORATORS
 
-A pytest decorator is a predefined marker that is created to customise and improve the behaviour of marked test functions. 
+A pytest decorator is a design pattern that is created to customise and improve the behaviour of test functions. 
 Decorators can be used for a variety of reasons, but basically they are used to improve code quality by creating reusable, concise, readable test functions.
 
-A decorator is a design pattern that allows you to modify the functionality of a function by wrapping it in another function.
+There are several specialised pre-defined markers that can be used to decorate a test function. In use, a marker can be defined before the original test function name, simply wrapping it. This allows to the test function to use the functionality of the decorator. Multiple decorators can be used for same test functions.
+
+Can be seen in the example below a test function test_empty_username_pass_login decorated with @pytest.mark.skip marker:
+```python 
+@pytest.mark.skip
+def test_empty_username_pass_login(self):
+    ...
+```
 
 ## skip decorator
 ```python 
