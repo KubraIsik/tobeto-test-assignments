@@ -29,8 +29,8 @@ class Test_Sauce_Login:
     # LOGIN, TEST CASE 1    
     # find username, password textboxes, enter given user_name and password and click button
     #@pytest.fixture()
-    @pytest.mark.usefixtures(user_name_input,password_input)
-    def login_test(self,user_name_input,password_input):
+    #@pytest.mark.usefixtures(user_name_input,password_input)
+    #def login_test(self,user_name_input,password_input):
        
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys(user_name_input)
@@ -46,16 +46,16 @@ class Test_Sauce_Login:
     #@pytest.mark.skip
     def test_empty_username_pass_login(self):
 
-        """ usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
+        usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys("")
         
         passwordInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"password")))
         passwordInput.send_keys("")
 
         loginButton = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"login-button")))
-        loginButton.click() """
+        loginButton.click()
 
-        self.login_test(self.user_name_input,self.password_input)
+        #self.login_test(self.user_name_input,self.password_input)
         
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Username is required"
@@ -83,18 +83,18 @@ class Test_Sauce_Login:
     #@pytest.mark.skip
     def test_locked_login(self):
 
-        """ usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
+        usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys("locked_out_user")
         
         passwordInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"password")))
         passwordInput.send_keys("secret_sauce")
 
         loginButton = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"login-button")))
-        loginButton.click() """
+        loginButton.click()
 
-        user_name_input = "locked_out_user"
-        password_input ="secret_sauce"
-        self.login_test(user_name_input,password_input)
+        #user_name_input = "locked_out_user"
+        #password_input ="secret_sauce"
+        #self.login_test(user_name_input,password_input)
 
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Sorry, this user has been locked out."
