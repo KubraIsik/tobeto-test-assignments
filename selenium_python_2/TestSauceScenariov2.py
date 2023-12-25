@@ -29,6 +29,7 @@ class Test_Sauce_Login:
     # LOGIN, TEST CASE 1    
     # find username, password textboxes, enter given user_name and password and click button
     #@pytest.fixture()
+    @pytest.mark.usefixtures(user_name_input,password_input)
     def login_test(self,user_name_input,password_input):
        
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
@@ -54,9 +55,7 @@ class Test_Sauce_Login:
         loginButton = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"login-button")))
         loginButton.click() """
 
-        user_name_input = "" 
-        password_input =""
-        self.login_test(user_name_input,password_input)
+        self.login_test()
         
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Username is required"
@@ -100,7 +99,7 @@ class Test_Sauce_Login:
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Sorry, this user has been locked out."
     
-    # LOGIN, TEST CASE 3    
+    # LOGIN, TEST CASE 4    
     # not registered user login
     #@pytest.mark.skip
     @pytest.mark.parametrize("username,password",[("1","secret_sauce"),("problem_user","empty"),("emptyPass","notRegistered")])
@@ -118,7 +117,7 @@ class Test_Sauce_Login:
         errorMessage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH,"//*[@id='login_button_container']/div/form/div[3]/h3")))
         assert errorMessage.text == "Epic sadface: Username and password do not match any user in this service"
     
-    # LOGIN, TEST CASE 4    
+    # LOGIN, TEST CASE 5    
     # succesfull login
     # check expected results of the standard user login 
     #@pytest.mark.skip
@@ -216,12 +215,15 @@ class Test_Sauce_ProductList_Page:
     #@pytest.mark.skip
     def test_goToproductDetailsByItemName(self):
         
+        # find first item name and get its text
         itemName = WebDriverWait(self.driver,5).until(ec.presence_of_element_located((By.CLASS_NAME, "inventory_item_name")))
         itemNameText = itemName.text
         
+        # find item name text link and click
         itemLink= WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, "item_4_title_link")))
         itemLink.click()
         
+        # check if text of item name link and item name that is shown in the product detail page match 
         itemDetailsName = WebDriverWait(self.driver,5).until(ec.presence_of_element_located((By.CLASS_NAME, "inventory_details_name")))
         assert itemDetailsName.text == itemNameText, "Item Names are not equal"
     
@@ -230,14 +232,14 @@ class Test_Sauce_ProductList_Page:
     #@pytest.mark.skip
     def test_goToproductDetailsByItemImage(self):
         
+        # find first item name of the item image and get its text
         itemImage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, "//*[@id='item_4_img_link']/img")))
-        #itemImage = WebDriverWait(self.driver,5).until(ec.presence_of_element_located((By.CLASS_NAME, "inventory_item_img")))
-        #itemImageScreenshot = itemImage.screenshot_as_base64 #itemImage.screenshot_as_png
-        itemImageScreenshot = itemImage.accessible_name
+        itemImageName = itemImage.accessible_name
         
+        # find first item image link and click
         itemImageLink= WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, "item_4_img_link")))
         itemImageLink.click()
         
+        # check if text of item image link and item image name that is shown in the product detail page match 
         itemDetailsImage = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.CLASS_NAME, "inventory_details_img")))
-        #assert itemDetailsImage.screenshot_as_base64 == itemImageScreenshot, "Item Images does not match"
-        assert itemDetailsImage.accessible_name == itemImageScreenshot, "Item Images does not match"
+        assert itemDetailsImage.accessible_name == itemImageName, "Item Images does not match"
