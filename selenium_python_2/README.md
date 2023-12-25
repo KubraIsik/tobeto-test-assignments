@@ -3,7 +3,9 @@
 A decorator is a design pattern that allows you to modify the functionality of a function by wrapping it in another function.
 
 ## skip decorator
-```python @pytest.mark.skip()```
+```python 
+    @pytest.mark.skip()
+```
 A test function that has to be skipped for execution can be marked using the skip decorator
 
 ## parameterize decorator
