@@ -1,5 +1,5 @@
 
-In this particular python test automation scrpits, Selenium automated test cases executed for https://www.saucedemo.com/ website with using pytest framework in VSCode IDE.
+In this particular python test automation scripts, Selenium automated test cases are executed for https://www.saucedemo.com/ website with using pytest framework in VSCode IDE.
 
 For user login scenario 5 different test cases and for product list page 3 different test cases are created as pytest functions.
 Test case functions are decorated with some pytest decorators. 
