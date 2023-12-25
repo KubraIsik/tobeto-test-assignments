@@ -6,6 +6,8 @@ Test case functions are decorated with some pytest decorators.
 
 # PYTEST DECORATORS
 
+![alt text](https://github.com/[KubraIsik]/[tobeto-test-assignments]/blob/[selenium_python_2]/image.jpg?raw=true)
+
 A pytest decorator is a design pattern that is created to customise and improve the behaviour of test functions. 
 Decorators can be used for a variety of reasons, but basically they are used to improve code quality by creating reusable, concise, readable test functions.
 
@@ -36,6 +38,5 @@ only creating a single test case that accepts different input values is enough. 
 ```python 
     @pytest.fixture
 ```
-Different from parameterize and skip decorator a function different from test case function marked with fixture decorator, and the function decorated with fixture can be used as arguments for test function. 
-Pytest fixtures are functions attached to the tests which run before the test function is executed. 
-Fixtures are used to feed some data to the tests such as database connections, URLs to test, and some sort of input data. Therefore, instead of running the same code for every test, we can attach a fixture function to the tests, and it will run and return the data to the test before executing each test.
+Different from parameterize and skip decorator, fixture decorator is used to mark a function different from test case function and the function decorated with fixture is passed as arguments into test function. 
+Pytest fixtures are functions attached to the tests which run before the test function is executed. Fixtures are used to feed some data to the tests such as database connections, URLs to test, and some sort of input data. Therefore, instead of running the same code for every test, we can attach a fixture function to the tests, and it will run and return the data to the test before executing each test. They can be used to ensure pre-conditions for test cases.
