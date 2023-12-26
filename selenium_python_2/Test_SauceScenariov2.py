@@ -30,7 +30,7 @@ class Test_Sauce_Login:
     # find username, password textboxes, enter given user_name and password and click button
     #@pytest.fixture()
     #@pytest.mark.usefixtures(user_name_input,password_input)
-    #def login_test(self,user_name_input,password_input):
+    #def login_test(user_name_input,password_input):
        
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID,"user-name")))
         usernameInput.send_keys(user_name_input)
