@@ -17,7 +17,7 @@ class TestGoToproductDetailsByItemImage():
   def setup_method(self, method):
     self.driver = webdriver.Chrome()
     self.vars = {}
-    self.driver.get("https://www.saucedemo.com/")
+    self.driver.get(gc.BASE_URL)
     self.driver.set_window_size(1477, 880)
   
   def teardown_method(self, method):

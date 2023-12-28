@@ -31,7 +31,7 @@ class TestStandarduserlogin():
     self.driver.find_element(By.ID, "password").send_keys("secret_sauce")
     WebDriverWait(self.driver, 0.5).until(expected_conditions.visibility_of_element_located((By.ID, "login-button")))
     self.driver.find_element(By.ID, "login-button").click()
-    self.vars["x"] = len(self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item:nth-child(1) .inventory_item_desc"))
-    print("{}".format(self.vars["x"]))
+    self.vars["itemCount"] = len(self.driver.find_elements(By.XPATH, "//div[@class=\'inventory_item\']"))
+    assert(self.vars["itemCount"] == 6)
     self.driver.close()
   
