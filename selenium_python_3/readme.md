@@ -32,6 +32,8 @@ Count and store the number of the element that is located in the web page with g
 To check various conditions that is expected to verify like checking text of the error message that is appear on the webpage.  
 
 Some of the commands as examples for assertion commands:
+### 'assert' command
+Check if that a variable is an expected value. 
 ### 'wait for element visible' command
 Simply wait for a given time to Selenium find the element that will be located. To protect test to crash 
 
