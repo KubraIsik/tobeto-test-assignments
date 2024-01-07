@@ -23,14 +23,13 @@ class TestinvalidLogin():
   @pytest.mark.skip()
   def test_invalidLogin(self):
     user_email = WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, "//input[@name=\'email\']")))
-    user_email.send_keys("kuisik@gmail.com")
+    user_email.send_keys("icimdekisi@gmail.com")
     user_password = WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, "//input[@name=\'password\']")))
     user_password.send_keys("tobetopassword")
     giris_button = WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, "//button[contains(.,\'Giriş Yap\')]")))
     giris_button.click()
     toast_message_text = WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".toast-body"))).text
-    #toast_message_text = WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located((By.XPATH, "//div[@id='__next']/div/div[2]/div/div[2]"))).text
-    
+   
     assert toast_message_text == "• Geçersiz e-posta veya şifre."
     
   

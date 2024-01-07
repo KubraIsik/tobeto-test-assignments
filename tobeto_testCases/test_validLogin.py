@@ -10,10 +10,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
 import constants.globalConstants as gc
 
 class TestvalidLogin():
@@ -30,8 +26,7 @@ class TestvalidLogin():
     return self.driver
   
   def test_validLogin(self):
-    load_dotenv()
-    USER= os.getenv('USER_NAME')
+    
     user_email = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "//input[@name=\'email\']")))
     user_email.send_keys(gc.USER_MAIL)
     user_password = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, "//input[@name=\'password\']")))
