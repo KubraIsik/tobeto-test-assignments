@@ -22,8 +22,6 @@ class Testregister():
   def teardown_method(self):
     self.driver.quit()
 
-
-  
   def create_rand_user():
      
         RandNum= randint(0,1000)
