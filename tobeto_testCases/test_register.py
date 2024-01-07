@@ -22,36 +22,22 @@ class Testregister():
   def teardown_method(self):
     self.driver.quit()
 
-  
-  def write_json(new_data, filename='reservedUserNums.json'):
-    with open('data/'+filename,'r+') as file:
-          # First we load existing data into a dict.
-        file_data = json.load(file)
-        # Join new_data with file_data inside emp_details
-        file_data["reservedNum"].append(new_data)
-        # Sets file's current position at offset.
-        file.seek(0)
-        # convert back to json.
-        json.dump(file_data, file, indent = 4)
+
   
   def create_rand_user():
      
         RandNum= randint(0,1000)
-        #with open('data/reservedUserNums.json', 'r') as file:
-        #  data = json.load(file)
-        #while RandNum in data["reservedNum"]:
-        #      RandNum= randint(0,1000)
+    
         data= [{'registerUserName' : 'testName'+str(RandNum),
                 'registerSurName' : 'testSurName'+str(RandNum),
                 'registerMail' : 'testmail'+str(RandNum)+'@gmail.com',
                 'registerPassword': 1234567,
                 'registerPhoneNum' : 5321111111
               }]
-        #write_json(RandNum)
+    
         return data
 
   #@pytest.mark.skip() 
-  #@pytest.mark.parametrize("registerUserName,registerSurName,registerMail,registerPassword,registerPhoneNum",create_rand_user())
   @pytest.mark.parametrize("user_data",create_rand_user())
   def test_register(self,user_data):
   
@@ -67,10 +53,8 @@ class Testregister():
     register_password_again.send_keys(user_data["registerPassword"])
     
     register_button1 = WebDriverWait(self.driver, 10).until(ec.element_to_be_clickable((By.XPATH, "//button[contains(.,'Kayıt Ol')]")))
-    #register_button1.click()
     self.driver.execute_script("arguments[0].click();", register_button1)
     
-    # WebDriverWait(self.driver, 0.5).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".alert-header")))
     contact_permission= WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.NAME, "contact")))
     contact_permission.click()
     membershipContrat = WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.NAME, "membershipContrat")))
@@ -93,7 +77,7 @@ class Testregister():
     
     register_buton2 = WebDriverWait(self.driver, 5).until(ec.element_to_be_clickable((By.CSS_SELECTOR, ".btn-yes")))
     self.driver.execute_script("arguments[0].click();", register_buton2)
-    #WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.CSS_SELECTOR, ".alert-modal")))
+    
     register_alert = WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.CSS_SELECTOR, ".success-payment-text")))
     text = register_alert.text
     assert register_alert.text == "Tobeto Platform'a kaydınız başarıyla gerçekleşti.\nGiriş yapabilmek için e-posta adresinize iletilen doğrulama linkine tıklayarak hesabınızı aktifleştirin."
