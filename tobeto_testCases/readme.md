@@ -1,6 +1,6 @@
 # Test cases written in pytest for https://tobeto.com/
 
-## test_validLogin.py:
+## [!test_validLogin.py](https://github.com/KubraIsik/tobeto-test-assignments/blob/main/tobeto_testCases/test_validLogin.py):
   Test case pytest script to test successfull login attempts to the tobeto platform from https://tobeto.com/giris page.
 
 ## test_invalidLogin.py:
