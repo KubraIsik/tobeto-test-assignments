@@ -13,5 +13,5 @@
    Test case pytest script to test successful register to the tobeto platform from https://tobeto.com/kayit-ol page.
 
 ## [test_addExperience.py](https://github.com/KubraIsik/tobeto-test-assignments/blob/main/tobeto_testCases/test_addExperience.py):
-   Test case pytest script to test after succesfull login add expierience for a use profile page successfully 
+   Test case pytest script to test after succesfull login add experience for a use profile page successfully 
    from https://tobeto.com/profilim/profilimi-duzenle/deneyimlerim page.
